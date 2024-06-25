@@ -38,7 +38,7 @@ const Chatbot = () => {
         setLoading(true);
 
         try {
-            const response = await axios.post('http://65.2.164.223:4000/generate', { prompt: input });
+            const response = await axios.post('http://65.2.164.223:4000/generate', { prompt: input }, {referrerPolicy: 'no-referrer-when-downgrade'});
             const botResponse = { text: response.data.response, sender: 'bot' };
             setMessages(prevMessages => [...prevMessages, botResponse]);
         } catch (error) {
@@ -119,7 +119,7 @@ const Chatbot = () => {
                             <IoMenuSharp />
                         </button>
                     </div>
-                    
+
                 )}
 
                 <div className={`flex-1 overflow-y-auto p-6 ${darkMode ? 'bg-gray-900 text-white' : 'bg-gray-100 text-black'}`}>
