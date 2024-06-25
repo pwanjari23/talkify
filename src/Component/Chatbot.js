@@ -38,7 +38,7 @@ const Chatbot = () => {
         setLoading(true);
 
         try {
-            const response = await axios.post('http://65.2.164.223:4000/generate', { prompt: input });
+            const response = await axios.post('https://talkify-backend.vercel.app/generate', { prompt: input });
             const botResponse = { text: response.data.response, sender: 'bot' };
             setMessages(prevMessages => [...prevMessages, botResponse]);
         } catch (error) {
