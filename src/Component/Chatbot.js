@@ -119,7 +119,7 @@ const Chatbot = () => {
         </div>
     
         {/* Main Chat Area */}
-        <div className="flex flex-col w-full max-w-3xl rounded-lg h-full fixed">
+        <div className="flex flex-col w-full max-w-3xl rounded-lg h-full ">
             {/* Header */}
             {!sidebarOpen && (
                 <div className={`fixed top-0 left-0 z-50 flex items-center ${sidebarOpen ? 'ml-16' : 'ml-4'}`}>
