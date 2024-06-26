@@ -57,7 +57,7 @@ const Chatbot = () => {
     const renderMessage = (message) => {
         if (message.sender === 'bot') {
             const html = marked(message.text);
-            return <div dangerouslySetInnerHTML={{ __html: html }} className="break-all" />;
+            return <div className="max-w-full border-2 border-indigo-600" dangerouslySetInnerHTML={{ __html: html }} className="break-all" />;
         }
         return message.text;
     };
@@ -129,7 +129,6 @@ const Chatbot = () => {
                     <h1 className="text-2xl font-semibold ">Talkify</h1>
                 </div>
 
-
                 <div className={`flex-1 overflow-y-auto p-6 ${darkMode ? 'bg-gray-900 text-white' : 'bg-gray-100 text-black'}`}>
                     {messages.map((message, index) => (
                         <div
@@ -138,7 +137,7 @@ const Chatbot = () => {
                             onMouseEnter={() => setHoveredMessageIndex(index)}
                             onMouseLeave={() => setHoveredMessageIndex(null)}
                         >
-                            <div className={`relative rounded-lg p-4 mb-6 lg:max-w-[75%] sm:max-w-[75%] break-words ${message.sender === 'user' ? (darkMode ? 'bg-gray-700 text-white' : 'bg-blue-500 text-white') : darkMode ? 'bg-gray-800 text-white' : 'bg-gray-200 text-black'}`}>
+                            <div className={`relative rounded-lg p-4 mb-6 lg:max-w-[75%] sm:max-w-[75%] break-words overflow-auto ${message.sender === 'user' ? (darkMode ? 'bg-gray-700 text-white' : 'bg-blue-500 text-white') : darkMode ? 'bg-gray-800 text-white' : 'bg-gray-200 text-black'}`}>
                                 {renderMessage(message)}
                                 {hoveredMessageIndex === index && message.sender !== 'user' && (
                                     <IoCopyOutline
@@ -185,6 +184,8 @@ const Chatbot = () => {
                 </div>
             </div>
         </div>
+
+
     );
 }
 
